@@ -60,6 +60,27 @@ const Wrapper = styled.article`
     grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
     gap: 1.25rem 1rem;
     padding: 1rem 2rem;
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border: 1px solid var(--clr-grey-8);
+      /* border-radius: 15px; */
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      background-color: var(--clr-grey-8);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--clr-grey-6);
+      border-radius: 15px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--clr-grey-4);
+    }
   }
   article {
     transition: var(--transition);
