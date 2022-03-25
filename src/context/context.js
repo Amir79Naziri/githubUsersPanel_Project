@@ -9,17 +9,14 @@ const rootUrl = 'https://api.github.com';
 const GithubContext = React.createContext();
 
 const GithubProvider = ({ children }) => {
-  useEffect(() => {
-    const loadData = async () => {
-      const raw = await axios.get(rootUrl);
-      const user = await raw.data;
-    };
-
-    // loadData();
-  }, []);
+  const [gitHubUser, setGitHubUser] = useState(mockUser);
+  const [repos, setRepos] = useState(mockRepos);
+  const [followers, setFollowers] = useState(mockFollowers);
 
   return (
-    <GithubContext.Provider value={'hello'}>{children}</GithubContext.Provider>
+    <GithubContext.Provider value={{ gitHubUser, followers, repos }}>
+      {children}
+    </GithubContext.Provider>
   );
 };
 
