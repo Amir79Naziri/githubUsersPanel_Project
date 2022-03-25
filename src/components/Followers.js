@@ -66,11 +66,11 @@ const Wrapper = styled.article`
     }
 
     ::-webkit-scrollbar-track {
-      border: 1px solid var(--clr-grey-8);
+      border: 1px solid white;
       /* border-radius: 15px; */
       border-top-right-radius: 15px;
       border-bottom-right-radius: 15px;
-      background-color: var(--clr-grey-8);
+      background-color: white;
     }
 
     ::-webkit-scrollbar-thumb {
