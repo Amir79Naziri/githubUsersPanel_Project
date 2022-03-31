@@ -6,26 +6,27 @@ import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
 ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
 
-const ExampleChart = ({ data }) => {
+const Pie2D = ({ children: data }) => {
   const chartConfigs = {
-    type: 'column2d',
-    width: '450',
+    type: 'pie2d',
+    width: '100%',
     height: '400',
     dataFormat: 'json',
     dataSource: {
       chart: {
-        caption: 'Countries With Most Oil Reserves [2017-18]',
-        subCaption: 'In MMbbl = One Million barrels',
-        xAxisName: 'Country',
-        yAxisName: 'Reserves (MMbbl)',
-        numberSuffix: 'K',
+        caption: 'Most Used Languages',
+        use3DLighting: '0',
+        showPercentValues: '1',
+        decimals: '1',
+        useDataPlotColorForLabels: '1',
         theme: 'fusion',
+        pieRadius: '35%',
       },
-      data: data,
+      data,
     },
   };
 
   return <ReactFC {...chartConfigs} />;
 };
 
-export default ExampleChart;
+export default Pie2D;

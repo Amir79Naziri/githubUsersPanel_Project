@@ -1,9 +1,30 @@
 import React from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import { GithubContext } from '../context/context';
-import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
+import { ExampleChart, Pie2D, Column3D, Bar3D, Doughnut2D } from './Charts';
 const Repos = () => {
-  return <h2>repos component</h2>;
+  const { repos } = useContext(GithubContext);
+  const langs = repos.reduce((total, repo) => {
+    if (repo.language) {
+      total[repo.language]
+        ? (total[repo.language].value += 1)
+        : (total[repo.language] = { label: repo.language, value: 1 });
+    }
+    return total;
+  }, {});
+
+  const mostUsedLangs = Object.values(langs)
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 5);
+
+  return (
+    <section className="section">
+      <Wrapper className="section-center">
+        <Pie2D>{mostUsedLangs}</Pie2D>
+      </Wrapper>
+    </section>
+  );
 };
 
 const Wrapper = styled.div`
