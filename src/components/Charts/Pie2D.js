@@ -20,7 +20,7 @@ const Pie2D = ({ children: data }) => {
         decimals: '1',
         useDataPlotColorForLabels: '1',
         theme: 'fusion',
-        pieRadius: '35%',
+        pieRadius: '28%',
       },
       data,
     },

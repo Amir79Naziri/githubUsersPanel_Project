@@ -6,23 +6,20 @@ import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
 ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
 
-const Doughnut2d = ({ children: data }) => {
+const Column2D = ({ children: data }) => {
   const chartConfigs = {
-    type: 'doughnut2d',
+    type: 'column2d',
     width: '100%',
     height: '400',
     dataFormat: 'json',
     dataSource: {
       chart: {
-        caption: 'Stars Per Languages',
-        use3DLighting: '0',
-        showPercentValues: '1',
-        decimals: '1',
-        useDataPlotColorForLabels: '1',
+        caption: 'Most Popular',
+        xAxisName: 'Repos',
+        xAxisNameFontSize: '1rem',
+        yAxisName: 'Stars',
+        yAxisNameFontSize: '1rem',
         theme: 'fusion',
-        doughnutRadius: '70%',
-        pieRadius: '28%',
-        showPercentValues: '0',
       },
       data,
     },
@@ -31,4 +28,4 @@ const Doughnut2d = ({ children: data }) => {
   return <ReactFC {...chartConfigs} />;
 };
 
-export default Doughnut2d;
+export default Column2D;
