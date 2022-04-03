@@ -15,9 +15,9 @@ const Bar2D = ({ children: data }) => {
     dataSource: {
       chart: {
         caption: 'Most Forked',
-        xAxisName: 'Forks',
+        xAxisName: 'Repos',
         xAxisNameFontSize: '1rem',
-        yAxisName: 'Stars',
+        yAxisName: 'Forks',
         yAxisNameFontSize: '1rem',
         theme: 'fusion',
       },

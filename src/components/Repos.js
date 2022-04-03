@@ -5,6 +5,7 @@ import { GithubContext } from '../context/context';
 import { ExampleChart, Pie2D, Column2D, Bar2D, Doughnut2D } from './Charts';
 const Repos = () => {
   const { repos } = useContext(GithubContext);
+
   const langs = repos.reduce((total, repo) => {
     const { language, stargazers_count } = repo;
 
@@ -35,15 +36,30 @@ const Repos = () => {
       return { ...item, value: item.stars };
     });
 
-  console.log(mostUsedLangs);
-  console.log(starsPerLangs);
+  const mostForked = repos
+    .sort((a, b) => b.forks_count - a.forks_count)
+    .slice(0, 5)
+    .map((item) => {
+      return { label: item.name, value: item.forks_count };
+    });
+  // console.log(repos);
+
+  const mostStared = repos
+    .sort((a, b) => b.stargazers_count - a.stargazers_count)
+    .slice(0, 5)
+    .map((item) => {
+      return { label: item.name, value: item.stargazers_count };
+    });
+
+  // console.log(mostUsedLangs);
+  // console.log(starsPerLangs);
   return (
     <section className="section">
       <Wrapper className="section-center">
         <Pie2D>{mostUsedLangs}</Pie2D>
-        <Column2D>{mostUsedLangs}</Column2D>
+        <Column2D>{mostStared}</Column2D>
         <Doughnut2D>{starsPerLangs}</Doughnut2D>
-        <Bar2D>{starsPerLangs}</Bar2D>
+        <Bar2D>{mostForked}</Bar2D>
       </Wrapper>
     </section>
   );
