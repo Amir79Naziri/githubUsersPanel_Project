@@ -26,7 +26,7 @@ const GithubProvider = ({ children }) => {
         const {
           rate: { remaining },
         } = data;
-        // remaining = 0;
+
         setRequest(remaining);
 
         if (remaining === 0) {
@@ -38,15 +38,18 @@ const GithubProvider = ({ children }) => {
 
   const searchUser = async (user) => {
     toggleError();
+    setLoading(true);
     try {
       let response = await axios.get(`${rootUrl}/users/${user}`);
 
       setGitHubUser(response.data);
-      checkRequest();
     } catch (err) {
       if (err.message === 'Request failed with status code 404')
         toggleError(true, 'there is no user with this username!');
       else console.log(err);
+    } finally {
+      checkRequest();
+      setLoading(false);
     }
   };
 
@@ -56,7 +59,15 @@ const GithubProvider = ({ children }) => {
 
   return (
     <GithubContext.Provider
-      value={{ gitHubUser, followers, repos, request, error, searchUser }}
+      value={{
+        gitHubUser,
+        followers,
+        repos,
+        request,
+        error,
+        searchUser,
+        loading,
+      }}
     >
       {children}
     </GithubContext.Provider>

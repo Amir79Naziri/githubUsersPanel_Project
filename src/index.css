@@ -172,13 +172,13 @@ p {
   }
 }
 .loading-img {
-  width: 20rem;
-  height: 20rem;
+  width: 16rem;
+  height: 16rem;
   display: block;
   margin: 0 auto;
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
+
 main {
   padding-bottom: 2rem;
 }
-
