@@ -43,6 +43,27 @@ const GithubProvider = ({ children }) => {
       let response = await axios.get(`${rootUrl}/users/${user}`);
 
       setGitHubUser(response.data);
+
+      const { login, followers_url } = response.data;
+
+      const [repos, followers] = await Promise.allSettled([
+        axios.get(`${rootUrl}/users/${login}/repos?per_page=100`),
+        axios.get(followers_url),
+      ]);
+
+      if (repos.status === 'fulfilled') {
+        setRepos(repos.value.data);
+      } else {
+        toggleError(true, 'some thing went wrong with repositories!');
+        setRepos([]);
+      }
+
+      if (followers.status === 'fulfilled') {
+        setFollowers(followers.value.data);
+      } else {
+        toggleError(true, 'some thing went wrong with followers!');
+        setFollowers([]);
+      }
     } catch (err) {
       if (err.message === 'Request failed with status code 404')
         toggleError(true, 'there is no user with this username!');
