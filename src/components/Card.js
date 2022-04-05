@@ -24,7 +24,7 @@ const Card = () => {
           <h4>{name}</h4>
           <p>{login}</p>
         </div>
-        <a href={html_url} target="_blank">
+        <a href={html_url} target="_blank" rel="noopener noreferrer">
           follow
         </a>
       </header>
@@ -43,7 +43,7 @@ const Card = () => {
           </p>
         )}
         {blog && (
-          <a href={`https://${blog}`} target="_blank">
+          <a href={`https://${blog}`} target="_blank" rel="noopener noreferrer">
             <MdLink></MdLink> {blog}
           </a>
         )}

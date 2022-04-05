@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     id: 433222774,
     node_id: 'R_kgDOGdJ0dg',
@@ -3392,3 +3392,5 @@ export default [
     default_branch: 'master',
   },
 ];
+
+export default data;

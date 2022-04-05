@@ -16,7 +16,6 @@ const Doughnut2d = ({ children: data }) => {
       chart: {
         caption: 'Stars Per Languages',
         use3DLighting: '0',
-        showPercentValues: '1',
         decimals: '1',
         useDataPlotColorForLabels: '1',
         theme: 'fusion',

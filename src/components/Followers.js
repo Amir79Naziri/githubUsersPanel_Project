@@ -22,7 +22,7 @@ const Follower = ({ avatar_url: img, html_url, login }) => {
       <img src={img} alt={login} />
       <div>
         <h4>{login}</h4>
-        <a href={html_url} target="_blank">
+        <a href={html_url} target="_blank" rel="noopener noreferrer">
           {html_url}
         </a>
       </div>

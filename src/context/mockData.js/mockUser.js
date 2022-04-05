@@ -1,4 +1,4 @@
-export default {
+const data = {
   login: 'Amir79Naziri',
   id: 58638070,
   node_id: 'MDQ6VXNlcjU4NjM4MDcw',
@@ -35,3 +35,5 @@ export default {
   created_at: '2019-12-07T18:58:15Z',
   updated_at: '2022-03-11T22:21:08Z',
 };
+
+export default data;
