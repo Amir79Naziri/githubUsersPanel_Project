@@ -2,7 +2,6 @@
   "name": "github-users-panel",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Amir79Naziri.github.io/github-user-panel",
   "dependencies": {
     "@auth0/auth0-react": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.3",
@@ -23,9 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
